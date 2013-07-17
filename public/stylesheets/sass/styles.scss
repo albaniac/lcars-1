@@ -119,14 +119,14 @@ h3 {
 		&:before {
 			position: absolute;
 			content: '';
-			width: 6px;
+			width: 8px;
 			height: $subtitle-height;
 			background-color: $black;
 		}
 		&:after {
 			position: absolute;
 			content: '';
-			width: 6px;
+			width: 8px;
 			height: $subtitle-height;
 			background-color: $black;
 			right: $subtitle-height + $fullscreen-margin;

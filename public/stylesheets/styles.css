@@ -122,13 +122,13 @@ h3 {
     #fullscreen .bars:before, #fullscreen header:before, #fullscreen footer:before {
       position: absolute;
       content: '';
-      width: 6px;
+      width: 8px;
       height: 40px;
       background-color: #090909; }
     #fullscreen .bars:after, #fullscreen header:after, #fullscreen footer:after {
       position: absolute;
       content: '';
-      width: 6px;
+      width: 8px;
       height: 40px;
       background-color: #090909;
       right: 70px; }
