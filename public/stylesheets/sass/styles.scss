@@ -1,0 +1,220 @@
+@import '../bourbon/bourbon';
+
+$color-1: #ffff99;
+$color-2: #ffcc66;
+$color-3: #ff9933;
+$color-4: #664466;
+$color-5: #cc99cc;
+$color-6: #99ccff;
+$color-7: #3366cc;
+$color-8: #006699;
+$black:   #090909;
+
+$button-width:    150px;
+$button-height:   60px;
+$button-spacing:  5px;
+
+$subtitle-height: 40px;
+
+$font-multiplier: 1.40;
+
+@font-face {
+    font-family: 'lcars';
+    src: url('../fonts/HelveticaLTStd-UltraComp.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	background-color: $black;
+	padding: 10px;
+	overflow: hidden;
+	font-family: 'lcars';
+	font-size: 20px;
+	-webkit-font-smoothing: antialiased;
+	@include box-sizing(border-box);
+	@include user-select(none);
+}
+
+body {
+	@include display(flex);
+}
+
+#screen {
+	width: 100%;
+	height: 100%;
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $color-2;
+	padding: 0 10px;
+	background-color: $black;
+	margin: 0;
+	text-transform: uppercase;
+	font-weight: normal;
+}
+
+@mixin font-fix($font-size) {
+	$new-font-size: $font-size * $font-multiplier;
+	font-size: $new-font-size;
+	height: $font-size;
+	line-height: $new-font-size;
+}
+
+h1 {
+	@include font-fix(60px);
+}
+h2 {
+	@include font-fix($subtitle-height);
+}
+h3 {
+	@include font-fix(30px);
+}
+
+.pull-right {
+	text-align: right;
+}
+
+
+#fullscreen {
+	@include display(flex);
+	@include flex-direction(column);
+	@include align-items(center);
+	@include justify-content(center);
+	$fullscreen-margin: 30px;
+	width: 100%;
+	height: 100%;
+	margin: $fullscreen-margin;
+	#fullscreen-content {
+		@include display(flex);
+		@include flex(1);
+		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);
+		width: 100%;
+		overflow: hidden;
+		text-align: center;
+		box-sizing: border-box;
+		padding: 40px;
+	}
+	.bars {
+		width: 100%;
+		height: $subtitle-height;
+		background-color: $color-5;
+		border-radius: $subtitle-height / 2;
+		white-space: nowrap;
+		overflow: hidden;
+		padding: 0 $subtitle-height;
+		box-sizing: border-box;
+		@include display(flex);
+		@include flex-direction(row);
+		&:before {
+			position: absolute;
+			content: '';
+			width: 6px;
+			height: $subtitle-height;
+			background-color: $black;
+		}
+		&:after {
+			position: absolute;
+			content: '';
+			width: 6px;
+			height: $subtitle-height;
+			background-color: $black;
+			right: $subtitle-height + $fullscreen-margin;
+		}
+		h2 {
+			display: inline-block;
+			white-space: no-wrap;
+			&.pull-right {
+				position: absolute;
+				right: $subtitle-height + $fullscreen-margin;
+			}
+		}
+	}
+	header {
+		@extend .bars;
+		margin-top: 20px;
+	}
+	footer {
+		@extend .bars;
+		margin-bottom: 20px;
+	}
+
+}
+
+
+@mixin button-height ($height) {
+	height: $height;
+	padding-top: $height - 28px;
+}
+
+.button {
+	width: $button-width;
+	background-color: $color-6;
+	text-align: right;
+	box-sizing: border-box;
+	padding-right: 20px;
+	margin: 5px 3px;
+	display: inline-block;
+	@include button-height($button-height);
+	&.height2 {
+		@include button-height($button-height * 2 + $button-spacing);
+	}
+}
+.rounded-left {
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+}
+.rounded-right {
+	border-top-right-radius: 30px;
+	border-bottom-right-radius: 30px;
+}
+.rounded {
+	border-radius: 30px;
+}
+
+.color {
+	&:hover {
+		background-color: lighten($color-7, 10%);
+	}	
+}
+.color1 { background-color: $color-1; }
+.color2 { background-color: $color-2; }
+.color3 { background-color: $color-3; }
+.color4 { background-color: $color-4; }
+.color5 { background-color: $color-5; }
+.color6 { color: $color-6; }
+.color7 { 
+	background-color: $color-7;
+}
+.color8 { background-color: $color-8; }
+
+.shift1 { 
+	@include animation-name(pulse);
+	@include animation-duration(8.0s);
+	@include animation-timing-function(steps(1,start));
+	@include animation-iteration-count(infinite);
+	@include animation-direction(alternate);
+}
+@include keyframes(pulse) {
+	0%    { background-color: $color-7; }
+	33%   { background-color: $color-7; }
+	66%   { background-color: $color-6; }
+	100%  { background-color: $color-6; }
+}
+
+.federation-logo {
+	width: 600px;
+	height: 600px;
+	background: transparent center center no-repeat url('../img/federation-logo.svg');
+	background-size: contain;
+}
