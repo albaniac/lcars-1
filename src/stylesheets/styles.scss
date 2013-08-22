@@ -1,4 +1,4 @@
-@import '../bourbon/bourbon';
+@import 'bourbon/bourbon';
 
 $color-1: #ffff99;
 $color-2: #ffcc66;
@@ -54,7 +54,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: $color-2;
+	color: $color-3;
 	padding: 0 10px;
 	background-color: $black;
 	margin: 0;
