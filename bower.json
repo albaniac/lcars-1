@@ -1,0 +1,21 @@
+{
+  "name": "lcars",
+  "version": "0.0.0",
+  "homepage": "https://github.com/louh/lcars",
+  "authors": [
+    "Lou Huang <lou@louhuang.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.1",
+    "polymer": "Polymer/polymer#~0.3.4"
+  }
+}
