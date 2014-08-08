@@ -2,6 +2,7 @@ var PORT          = 4747,
     express       = require('express'),
     path          = require('path'),
     autoprefixer  = require('autoprefixer-stylus')
+    colors        = require('colors'),
     jade          = require('jade'),
     morgan        = require('morgan'),
     stylus        = require('stylus')
@@ -9,9 +10,9 @@ var PORT          = 4747,
 var app = express()
 
 app.set('port', process.env.PORT || PORT)
-app.set('views', __dirname + '/src/views')
-app.set('view engine', 'jade')
-app.engine('jade', require('jade').__express);
+//app.set('views', __dirname + '/src/views')
+//app.set('view engine', 'jade')
+
 app.use(morgan('dev'))
 
 app.use(
@@ -23,8 +24,17 @@ app.use(
 
 app.use(express.static(__dirname + '/public'))
 
+app.get('/', function (req, res) {
+  res.render(__dirname + '/src/views/transmission.jade')
+})
+app.get('/screen', function (req, res) {
+  console.log(req.params)
+  res.render(__dirname + '/src/views/screen.jade')
+})
+
 app.listen(app.get('port'), function () {
-    console.log('Starfleet Library Computer Access and Retrieval System activated at port ' + app.get('port'))
+  var port = app.get('port')
+  console.log('Starfleet'.cyan.underline.bold + ' ' + 'Library Computer Access and Retrieval System'.magenta.underline + ' ' + '(LCARS)'.green.bold + ' activated at port '.red + colors.yellow(port).bold)
 })
 
 /*

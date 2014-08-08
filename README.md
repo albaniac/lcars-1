@@ -6,6 +6,8 @@ This is an repository for me to learn and experiment with web-dev technologies t
 
 The live server is here: [http://lcars-monitor.herokuapp.com/](http://lcars-monitor.herokuapp.com/)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
 ## Note
 
 This is not a real application. It may not work on your browser and it most likely won't work on your phone. There may be a lot of crazy, experimental web tech in here (e.g. Flexbox) that are not compatible with whatever you're running. It will not display your files or run your operating system or skin your music player. The only goal I have is to (a) play with things and (b) at least create a viable screensaver of an LCARS display.

@@ -1,0 +1,7 @@
+{
+  "name": "LCARS",
+  "description": "Starfleet Library Computer Access and Retrieval System",
+  "repository": "https://github.com/louh/lcars",
+  "logo": "https://lcars-monitor.herokuapp.com/apple-touch-icon-precomposed.png",
+  "keywords": ["node", "express", "lcars"]
+}
