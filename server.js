@@ -5,7 +5,8 @@ var PORT          = 4747,
     colors        = require('colors'),
     jade          = require('jade'),
     morgan        = require('morgan'),
-    stylus        = require('stylus')
+    stylus        = require('stylus'),
+    winston       = require('winston')
 
 var app = express()
 
@@ -34,7 +35,7 @@ app.get('/screen', function (req, res) {
 
 app.listen(app.get('port'), function () {
   var port = app.get('port')
-  console.log('Starfleet'.cyan.underline.bold + ' ' + 'Library Computer Access and Retrieval System'.magenta.underline + ' ' + '(LCARS)'.green.bold + ' activated at port '.red + colors.yellow(port).bold)
+  winston.log('info', 'Starfleet'.cyan.underline.bold + ' ' + 'Library Computer Access and Retrieval System'.magenta.underline + ' ' + '(LCARS)'.green.bold + ' activated at port '.red + colors.yellow(port).bold)
 })
 
 /*
@@ -46,7 +47,7 @@ app.listen(app.get('port'), function () {
   where to look for the imported stylesheets.
 */
 function styles (str, path) {
-  console.log('Compiling stylus')
+  winston.info('Compiling stylus')
   return stylus(str)
     .use(autoprefixer('last 2 versions'))
     .set('compress', true)

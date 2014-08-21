@@ -13,3 +13,7 @@ The live server is here: [http://lcars-monitor.herokuapp.com/](http://lcars-moni
 This is not a real application. It may not work on your browser and it most likely won't work on your phone. There may be a lot of crazy, experimental web tech in here (e.g. Flexbox) that are not compatible with whatever you're running. It will not display your files or run your operating system or skin your music player. The only goal I have is to (a) play with things and (b) at least create a viable screensaver of an LCARS display.
 
 The code is licensed under a permissive MIT license (see LICENSE.md) so that if you want to borrow the code as a starting point for your own LCARS stuff, please feel free. CBS owns the rights to LCARS itself; I am in no way asserting any rights over the original concept or design.
+
+[![Code Climate](https://codeclimate.com/github/louh/lcars/badges/gpa.svg)](https://codeclimate.com/github/louh/lcars)
+[![Test Coverage](https://codeclimate.com/github/louh/lcars/badges/coverage.svg)](https://codeclimate.com/github/louh/lcars)
+
