@@ -49,7 +49,9 @@ app.listen(app.get('port'), function () {
 function styles (str, path) {
   winston.info('Compiling stylus')
   return stylus(str)
-    .use(autoprefixer('last 2 versions'))
+    .use(autoprefixer({
+      browsers: ['last 2 versions']
+    }))
     .set('compress', true)
     .set('paths', [__dirname + '/src/stylesheets/'])
     .set('include css', true)
