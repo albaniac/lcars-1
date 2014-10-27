@@ -1,12 +1,18 @@
 var PORT          = 4747,
     express       = require('express'),
-    path          = require('path'),
-    autoprefixer  = require('autoprefixer-stylus')
+    fs            = require('fs'),
+    env           = require('node-env-file'),
+    autoprefixer  = require('autoprefixer-stylus'),
     colors        = require('colors'),
     jade          = require('jade'),
     morgan        = require('morgan'),
     stylus        = require('stylus'),
     winston       = require('winston')
+
+var envFile = process.cwd() + '/.env'
+if (fs.existsSync(envFile)) {
+  env(envFile)
+}
 
 var app = express()
 
