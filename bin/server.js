@@ -11,26 +11,26 @@ var PORT          = 4747,
 var app = express()
 
 app.set('port', process.env.PORT || PORT)
-//app.set('views', __dirname + '/src/views')
+//app.set('views', process.cwd() + '/src/views')
 //app.set('view engine', 'jade')
 
 app.use(morgan('dev'))
 
 app.use(
   stylus.middleware({
-    src: __dirname + '/src',
-    dest: __dirname + '/public',
+    src: process.cwd() + '/src',
+    dest: process.cwd() + '/public',
     compile: styles
   }))
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(process.cwd() + '/public'))
 
 app.get('/', function (req, res) {
-  res.render(__dirname + '/src/views/transmission.jade')
+  res.render(process.cwd() + '/src/views/transmission.jade')
 })
 app.get('/screen', function (req, res) {
   console.log(req.params)
-  res.render(__dirname + '/src/views/screen.jade')
+  res.render(process.cwd() + '/src/views/screen.jade')
 })
 
 app.listen(app.get('port'), function () {
@@ -53,6 +53,6 @@ function styles (str, path) {
       browsers: ['last 2 versions']
     }))
     .set('compress', true)
-    .set('paths', [__dirname + '/src/stylesheets/'])
+    .set('paths', [process.cwd() + '/src/stylesheets/'])
     .set('include css', true)
 }
