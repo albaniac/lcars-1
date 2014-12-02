@@ -4,4 +4,4 @@ var config = {
   class: 'Storek'
 }
 
-module.exports = config;
+module.exports = config

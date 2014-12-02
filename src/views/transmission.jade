@@ -1,16 +1,16 @@
 extends layout
 
 block content
-  #screen
-    #fullscreen
+  .screen-container
+    .transmission-container
       header
-        h2.pull-right System Monitor 857
+        h2.pull-right= screenName
 
-      section#fullscreen-content
+      section.transmission-body
         .federation-logo
-        div(style='margin-bottom: 80px;')
-          h1 Incoming Transmission
+        div(style='margin-bottom: 60px; margin-top: 20px')
+          h1= mainLabel
           h3.color6(style='margin-top: 20px;') Starfleet Command &#8226; Authorized access only
 
       footer
-        h2 Main Bridge
+        h2= locationName

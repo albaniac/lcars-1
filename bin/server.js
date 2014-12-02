@@ -32,11 +32,17 @@ app.use(
 app.use(express.static(process.cwd() + '/public'))
 
 app.get('/', function (req, res) {
-  res.render(process.cwd() + '/src/views/transmission.jade')
+  res.render(process.cwd() + '/src/views/transmission.jade', {
+    screenName: 'System Monitor ' + (Math.floor(Math.random() * 1000)),
+    locationName: 'Main Bridge',
+    mainLabel: 'Incoming Transmission'
+  })
 })
 app.get('/screen', function (req, res) {
   console.log(req.params)
-  res.render(process.cwd() + '/src/views/screen.jade')
+  res.render(process.cwd() + '/src/views/screen.jade', {
+    title: 'Long Range Navigational Scan ' + (Math.floor(Math.random() * 100000))
+  })
 })
 
 app.listen(app.get('port'), function () {

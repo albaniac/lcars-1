@@ -1,6 +1,3 @@
-@import 'vendor/normalize.css'
-@import 'vendor/main.css'
-
 color-1 = #ffff99
 color-2 = #ffcc66
 color-3 = #ff9933
@@ -17,7 +14,10 @@ button-spacing    = 5px
 
 subtitle-height   = 40px
 font-multiplier   = 1.40
-fullscreen-margin = 30px
+
+*
+  box-sizing border-box
+
 
 @font-face
   font-family 'lcars'
@@ -36,18 +36,15 @@ html
   font-family 'lcars'
   font-size 20px
   -webkit-font-smoothing antialiased
-  box-sizing border-box
   user-select none
 
 body
   display flex
+  margin 0
 
-#screen
+.screen-container
   width 100%
   height 100%
-  display flex
-  align-items center
-  justify-content center
 
 h1, h2, h3, h4, h5, h6
   color color-3
@@ -74,14 +71,13 @@ h3
   text-align right
 
 .bars
+  position relative
   width 100%
   height subtitle-height
   background-color color-5
   border-radius (subtitle-height / 2)
   white-space nowrap
-  overflow hidden
   padding 0 subtitle-height
-  box-sizing border-box
   display flex
   flex-direction row
 
@@ -97,24 +93,24 @@ h3
     width 8px
     height subtitle-height
     background-color black
-    right subtitle-height + fullscreen-margin
+    right subtitle-height
   h2
     display inline-block
     white-space no-wrap
     &.pull-right
       position absolute
-      right subtitle-height + fullscreen-margin
+      right subtitle-height
 
-#fullscreen
+.transmission-container
   display flex
   flex-direction column
   align-items center
   justify-content center
   width 100%
   height 100%
-  margin fullscreen-margin
+  padding 1em
 
-  #fullscreen-content
+  .transmission-body
     display flex
     flex 1
     flex-direction column
@@ -128,27 +124,28 @@ h3
 
   header
     @extend .bars
-    margin-top 20px
 
   footer
     @extend .bars
-    margin-bottom 20px
 
 button-sizing(height)
   height height
-  padding-top height - 28px
 
 .button
+  position relative
   width button-width
   background-color color-6
   text-align right
-  box-sizing border-box
-  padding-right 20px
-  margin 5px 3px
+  font-size 1rem
+  margin 0 0.20em
   display inline-block
   button-sizing(button-height)
   &.height2
     button-sizing(button-height * 2 + button-spacing)
+  .button-label
+    position absolute
+    bottom 0.2em
+    right 20px
 
 .rounded-left
   border-top-left-radius 30px
@@ -184,8 +181,8 @@ button-sizing(height)
 
 .shift1
   animation-name pulse
-  animation-duration 8.0s
-  animation-timing-function steps(1,start)
+  animation-duration 6.0s
+  animation-timing-function steps(1, start)
   animation-iteration-count infinite
   animation-direction alternate
 
@@ -204,3 +201,67 @@ button-sizing(height)
   height 600px
   background transparent center center no-repeat url('../img/federation-logo.svg')
   background-size contain
+
+.basic-container
+  display flex
+  flex-direction column
+  height 100%
+  h1
+    font-size 3.5em
+
+.top-half
+  position relative
+  height 33%
+  min-height 150px
+  flex 0 0 auto
+  .frame
+    border-bottom-left-radius 100px
+    .button
+      top 0
+      bottom 120px
+  .content
+    top 0
+    bottom 16px
+    border-bottom-left-radius 60px
+
+.bottom-half
+  position relative
+  min-height 100px
+  flex 1 0 auto
+  margin-top 0.25em
+  .frame
+    border-top-left-radius 100px
+    .button
+      bottom 0
+  .content
+    bottom 0
+    top 16px
+    border-top-left-radius 60px
+    padding 0.5em 0 0 1em
+
+.frame
+  width 100%
+  height 100%
+  position absolute
+  background-color color-2
+  .button
+    position absolute
+    background-color color-3
+    width 160px
+    height auto
+    margin 0
+    border-bottom 0.25em solid black
+
+.content
+  position absolute
+  left 160px
+  background-color black
+  top 0
+  right 0
+  table
+    float right
+    color color-1
+  .button-area
+    float right
+    width (button-width * 2) + 20px
+    margin-left 1em

@@ -1,11 +1,72 @@
 extends layout
 
 block content
-  #screen
-    h1.pull-right Long Range Navigational Scan 94103
-
-    .button-test
-      .button 3423
-      .button.rounded-left.color5 233
-      .button.color3.height2 677
-      .button.rounded.color7.shift1 22331
+  .screen-container
+    .basic-container
+      .top-half
+        .frame
+          +button
+          .base
+        .content
+          h1.pull-right= title
+          .button-area
+            +button(class='rounded color5')
+            +button(class='rounded color4')
+            +button(class='rounded color3')
+            +button(class='rounded color5')
+          table
+            tr
+              td 90
+              td 102
+              td 402
+              td 40240
+              td 329
+              td &#8226;
+              td 3235
+              td 2039
+            tr
+              td 90
+              td 102
+              td 402
+              td 40240
+              td 329
+              td &#8226;
+              td 3235
+              td 2039
+            tr
+              td 90
+              td 102
+              td 402
+              td 40240
+              td 329
+              td &#8226;
+              td 3235
+              td 2039
+            tr
+              td 90
+              td 102
+              td 402
+              td 40240
+              td 329
+              td &#8226;
+              td 3235
+              td 2039
+            tr
+              td 90
+              td 102
+              td 402
+              td 40240
+              td 329
+              td &#8226;
+              td 3235
+              td 2039
+      .bottom-half
+        .frame
+          +button
+          +button
+        .content
+          .button-test
+            +button
+            +button(class='rounded-left color5')
+            +button(class='color3 height2')
+            +button(class='rounded color7 shift1')
